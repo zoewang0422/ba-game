@@ -307,8 +307,8 @@ function buildMess(){$("mess").innerHTML=MESS.map((m,i)=>`<span style="transform
 function updateMess(){
   const total=players.reduce((s,p)=>s+p.score,0),pct=Math.round(Math.min(total,MESS.length)/MESS.length*100);
   [...$("mess").children].forEach((s,i)=>{if(i<total&&!s.classList.contains("clean")){s.classList.add("clean");s.style.transform="none";s.textContent="✨"}});
-  $("tfill").style.transform=`scaleX(${pct/100})`;$("tpct").textContent=pct+"%";const bl=pct<1?"🐻 熊熊老闆：「快開店了，怎麼還這麼亂！」":pct<40?"🐰 兔兔店員：「有進步了，繼續加油！」":pct<80?"🐻 熊熊老闆：「快好了，客人快到了！」":"🎉 熊熊老闆：「幾乎乾淨了，太感謝你們了！」";
-  $("boss").innerHTML=`<svg class="ic2" viewBox="-130 -250 260 400"><use href="#${bl.startsWith("🐰")?"bunnyH":bl.startsWith("🎉")?"bearHappy":"bearH"}"/></svg><span>${bl.replace(/^\S+\s*/,"")}</span>`;$("boss").dataset.x=pct<1?"👨‍🍳 老闆：「快開店了，怎麼還這麼亂！」":pct<40?"🧑‍🍳 店員：「有進步了，繼續加油！」":pct<80?"👨‍🍳 老闆：「快好了，客人快到了！」":"🎉 老闆：「幾乎乾淨了，太感謝你們了！」";
+  $("tfill").style.transform=`scaleX(${pct/100})`;$("tpct").textContent=pct+"%";const bl=pct<1?"🐻 熊熊老闆：「快開店了！」":pct<40?"🐰 兔兔店員：「進步了，繼續加油！」":pct<80?"🐻 熊熊老闆：「快好了，客人快到了！」":"🎉 熊熊老闆：「乾淨了，太感謝你們了！」";
+  $("boss").innerHTML=`<svg class="ic2" viewBox="-130 -250 260 400"><use href="#${bl.startsWith("🐰")?"bunnyH":bl.startsWith("🎉")?"bearHappy":"bearH"}"/></svg><span>${bl.replace(/^\S+\s*/,"")}</span>`;$("boss").dataset.x=pct<1?"👨‍🍳 老闆：「快開店了！」":pct<40?"🧑‍🍳 店員：「進步了，繼續加油！」":pct<80?"👨‍🍳 老闆：「快好了，客人快到了！」":"🎉 老闆：「乾淨了，太感謝你們了！」";
 }
 function tpl(hl){
   const parts=[["S","S"],["（＋Neg）","Neg"],["＋",""],["把","ba"],["＋",""],["N","N"],["＋",""],["V","V"],["＋",""],["了","le"]];
